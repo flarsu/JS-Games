@@ -11,6 +11,7 @@ function randomSquare(){
         className.classList.remove('corona')
     })
     let randomPosition = square[Math.floor(Math.random()*9)]
+    //setAttribute won't work here as we want to add a class 
     randomPosition.classList.add('corona')
 
     hitPosition = randomPosition.id
