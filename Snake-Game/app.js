@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     let interval = 0
 
     function startGame(){
-        console.log('hi')
         currentSnake.forEach(index => squares[index].classList.remove('snake'))
         squares[appleIndex].classList.remove('apple')
         clearInterval(interval)
@@ -38,7 +37,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
     function me (){
         clearInterval(interval)
-        alert('Arey Bhayia tumhara Saanp mar gaya')
+        ScoreComp()
     }
 
     function moveOutcomes(){
@@ -86,7 +85,15 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
   document.addEventListener('keyup', control)
   startBtn.addEventListener('click',startGame)  
-
+  function ScoreComp(){
+      if(score>=localStorage.getItem("score")){
+          localStorage.setItem('score',score)
+        Swal.fire('Your Score is the Highest')
+      }
+      else{
+        Swal.fire('Keep Trying')
+      }
+  }
 
 
 })
