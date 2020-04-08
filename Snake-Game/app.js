@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded',()=>{
     const squares = document.querySelectorAll('.grid div')
     const scoreDisplay = document.querySelector('span')
+    const highscoreDisplay = document.querySelector('i')
     const startBtn = document.querySelector('.start')
 
     const width = 10
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     let interval = 0
 
     function startGame(){
+        highscoreDisplay.textContent = localStorage.getItem('score')
         currentSnake.forEach(index => squares[index].classList.remove('snake'))
         squares[appleIndex].classList.remove('apple')
         clearInterval(interval)
@@ -27,6 +29,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         currentIndex = 0
         currentSnake.forEach(index =>squares[index].classList.add('snake'))
         interval = setInterval(moveOutcomes,intervalTime)
+        
     }
     function randomApple(){
         do{
@@ -38,6 +41,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     function me (){
         clearInterval(interval)
         ScoreComp()
+        
     }
 
     function moveOutcomes(){
